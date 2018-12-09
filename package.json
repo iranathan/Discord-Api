@@ -2,46 +2,24 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "IeuanBOT",
-  "version": "0.5.0",
-  "description": "Ieuan Bot",
-  "main": "index.js",
+  "name": "hello-express",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
-    "bloxy": "^2.9.905",
-    "bufferutil": "^3.0.4",
-    "chalk": "^2.4.0",
-    "discord.js": "github:discordjs/discord.js#e189c1b728d8fd2742acc4d807e7559e807814fd",
-    "enmap": "^2.1.0",
-    "enmap-level": "^2.0.2",
-    "erlpack": "^0.1.2",
-    "express": "^4.16.3",
-    "hastebin": "github:extasymonst4/hastebin",
-    "isgd": "^1.1.3",
-    "json": "^9.0.6",
-    "libsodium-wrappers": "^0.7.3",
-    "moment": "^2.22.1",
-    "moment-duration-format": "^2.2.2",
-    "moment-timezone": "^0.5.16",
-    "node-opus": "^0.2.7",
-    "opusscript": "^0.0.6",
-    "progress": "^2.0.0",
-    "request": "^2.85.0",
-    "roblox-js": "^4.0.2",
-    "sequelize": "^4.37.6",
-    "sodium": "^2.0.3",
-    "sqlite": "^2.9.1",
-    "sqlite3": "^4.0.0",
-    "time": "^0.12.0",
-    "uws": "^9.147.0"
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "https": "^1.0.0",
+    "request": "^2.88.0"
   },
   "engines": {
-    "node": "9.x"
+    "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "https://glitch.com/edit/#!/hello-express"
   },
   "license": "MIT",
   "keywords": [

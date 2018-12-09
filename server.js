@@ -1,39 +1,50 @@
-// server.js
-// where your node app starts
+const request = require('request');
+const bot = {}
+bot.token = null
+this.token = bot.token
+this.endpoints = require('./endpoints.js')
+this.request = request;
+this.getToken = require('./src/token/token.js').getToken;
+bot.endpoints = this.endpoints;
+var EventEmitter = require('events');
+bot.events = new EventEmitter();
 
-// init project
-const express = require('express')
-const app = express()
+bot.this = this;
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'))
+async function bind() {
+/* BIND GET */
+require('./src/function/GET/bind.js').bind(bot);
+require('./src/function/POST/bind.js').bind(bot);
+/*  POST  */
+const POST = require('./src/function/POST/bind.js');
+bot.createMessage = POST.createMessage;
+bot.createChannel = POST.createChannel;
+bot.typing = POST.typing;
+/* PATCH */
+bot.changeNickname = POST.changeNickname;
+/*  GET  */
+const GET = require('./src/function/GET/bind.js');
+bot.getUser = GET.getUser;
+bot.getMessages = GET.getMessages;
+bot.getGuildRoles = GET.getGuildRoles;
+bot.getGuildMembers = GET.getGuildMembers
+bot.add = GET.login;
+  
+}
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + '/views/index.html')
-})
 
-// Simple in-memory store
-const dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-]
+bind()
 
-app.get("/dreams", (request, response) => {
-  response.send(dreams)
-})
 
-// could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/dreams", (request, response) => {
-  dreams.push(request.query.dream)
-  response.sendStatus(200)
-})
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log(`Your app is listening on port ${listener.address().port}`)
-})
+
+function client() {
+return "Version 1.0"
+}
+
+client.Client = function() {
+ return bot; 
+}
+
+module.exports = client;
