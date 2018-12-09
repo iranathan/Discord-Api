@@ -3,9 +3,9 @@ module.exports.bind = (bot) => {
 const request = inf.request;
        const token = bot.token || inf.token;
   const endpoints = bot.endpoints || inf.endpoints;
-  
+  const tokenmanage = require('../../token/token')
   exports.getMessages = (channelid) => {
-        const token = bot.token
+        const token = tokenmanage.getToken()
     console.log(this)
 const endpoints = this.endpoints
   const re = new Promise(function(resolve, reject) {
@@ -13,7 +13,7 @@ const endpoints = this.endpoints
       method: "GET",
       uri: inf.endpoints.CHANNEL_MESSAGES(channelid),
       headers: {
-        Authorization: token
+        Authorization: tokenmanage.getToken()
       }
     }, (err, res, data) => {
       resolve(JSON.parse(data))
@@ -34,7 +34,7 @@ return new Promise(function(resolve, reject) {
   request({   method: "GET",
     uri: endpoints.USER(id),
     headers: {
-      Authorization: token
+      Authorization: tokenmanage.getToken()
     }}, (err, res, data) => {
     data = JSON.parse(data)
 
@@ -82,7 +82,7 @@ return new Promise(function(resolve, reject) {
       method: "GET",
       uri: `${endpoints.MAIN}/guilds/${GuildId}/roles`,
          headers: {
-     Authorization: token
+     Authorization: tokenmanage.getToken()
    },
       }, (err, res, data) => {
         
@@ -103,7 +103,7 @@ exports.getGuildMembers = (guildid) => {
   request({  method: "GET", 
     uri: this.endpoints.GUILD_MEMBERS(guildid),
     headers: {
-      Autorization: token
+      Autorization: tokenmanage.getToken()
   }}, (err, res, data) => {
     resolve(JSON.parse(data))
   });
